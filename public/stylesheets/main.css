@@ -1,25 +1,43 @@
 body {
   font-family: 'ChaletBook';
+  margin: 20px 0;
 }
 
 h1, h2, h3, h4 {
   letter-spacing: -1;
-  color: #334D5C;
+  color: #285C85;
+}
+
+h1 {
+  font-size: 40px;
 }
 
 .container {
   width: 900px;
-  margin: 40px auto;
+  margin: 0 auto;
+  padding: 10px 0;
 }
 
 .clearfix {
   clear: both;
 }
 
+.good {
+  color: #45B29D;
+}
+
+.bad {
+  color: #DF4949;
+}
+
 .row {
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
+  padding: 18px 0 26px 0;
+  border-top: 1px solid #eee;
+  position: relative;
+}
+
+.row:nth-child(even) {
+  background: #fafafa;
 }
 
 .row .title {
@@ -33,6 +51,7 @@ h1, h2, h3, h4 {
   width: 180px;
   margin-right: 20px;
   color: #416275;
+  bottom: 0;
 }
 
 .row .stats .units {
@@ -43,7 +62,7 @@ h1, h2, h3, h4 {
 }
 
 .row .stats .latest {
-  color: #DF4949;
+  color: #666;
   font-size: 40px;
   padding-bottom: 5px;
 }
@@ -83,7 +102,7 @@ h1, h2, h3, h4 {
 
 .rickshaw_graph .x_tick .title {
   position: relative;
-  bottom: -8px !important;
+  bottom: -2px !important;
   color: #999;
 }
 

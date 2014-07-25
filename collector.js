@@ -12,7 +12,7 @@ var apigeeKey = process.env.APIGEE_KEY;
 function report(url, metricName) {
   var start = Date.now();
 
-  http.get(url + '?api_key=' + apigeeKey, {}, function(err, res, body) {
+  http.get(url + '&api_key=' + apigeeKey, {}, function(err, res, body) {
     var time = Date.now() - start;
 
     var params = {
@@ -32,6 +32,9 @@ function report(url, metricName) {
   })
 }
 
-report('http://data.bbc.co.uk/ldp/creative-works', 'ldp-core-response-time');
-report('http://data.bbc.co.uk/ldp/creative-works-v2', 'ldp-core-cw-v2-response-time');
-report('http://data.bbc.co.uk/ldp/tag-concepts', 'ldp-core-tag-concepts-response-time');
+report('http://data.bbc.co.uk/ldp/creative-works?', 'ldp-core-response-time');
+report('http://data.bbc.co.uk/ldp/creative-works-v2?', 'ldp-core-cw-v2-response-time');
+report('http://data.bbc.co.uk/ldp/creative-works-v2?about=creative-works-v2?about=32308873-9c53-4071-97b5-4aa7129a4bc5', 'ldp-core-cw-v2-london-response-time');
+report('http://data.bbc.co.uk/ldp/tag-concepts?', 'ldp-core-tag-concepts-response-time');
+report('http://data.bbc.co.uk/ldp/tag-concepts?', 'ldp-core-datasets-response-time');
+report('http://data.bbc.co.uk/ldp/tag-concepts?', 'ldp-core-ontologies-response-time');

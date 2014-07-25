@@ -1,17 +1,11 @@
-odometerOptions = { auto: false }; // Disables auto-initialization
-
 function initializeGraph(id, dataURL) {
   var axes;
   var graph = new Rickshaw.Graph.Ajax( {
       element: document.getElementById(id).getElementsByClassName("graph")[0],
       height: 140,
+      min: 0,
       renderer: 'line',
       dataURL: dataURL,
-      interpolation: 'linear',
-      padding: {
-        top: 0.03,
-        bottom: 0
-      },
       onComplete: function(transport) {
         var graph = transport.graph;
         if(!axes) {
@@ -21,29 +15,37 @@ function initializeGraph(id, dataURL) {
           });
           var hoverDetail = new Rickshaw.Graph.HoverDetail( {
               graph: graph
-          } );
-          axes.render();
+          });
         }
         var data = graph.series[0].data;
-        var last = data[data.length - 1];
-        $("#" + id + " .stats .latest .number").text(Math.floor(last.y));
+        var last = Math.floor(data[data.length - 1].y);
+        $("#" + id + " .stats .latest .number").text(last);
+        if(last > 750) {
+          $("#" + id + " .stats .latest .number").addClass("bad");
+        } else {
+          $("#" + id + " .stats .latest .number").addClass("good");
+        }
+
+
         graph.update();
       },
-      series: [ {
-        name: 'Response Time',
-        color: '#45B29D',
-      } ]
+      series: [
+        { name: 'Response Time', color: '#45B29D' }
+      ]
   });
 
 
   setInterval(function() {
     graph.request();
-  }, 10000000);
+  }, 1000);
 }
 
 $(document).ready(function() {
   var formatDate = d3.time.format.iso;
   initializeGraph('cw', 'data?id=ldp-core-response-time')
   initializeGraph('cw-v2', 'data?id=ldp-core-cw-v2-response-time')
+  initializeGraph('cwl', 'data?id=ldp-core-cw-v2-london-response-time')
   initializeGraph('tc', 'data?id=ldp-core-tag-concepts-response-time')
+  initializeGraph('d', 'data?id=ldp-core-datasets-response-time')
+  initializeGraph('o', 'data?id=ldp-core-ontologies-response-time')
 });

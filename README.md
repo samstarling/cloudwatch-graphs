@@ -12,5 +12,6 @@ To run `collector.js`, you'll also need to have `APIGEE_KEY` set.
 
 1. Make it less LDP-specific.
 1. Deploy it to Cosmos.
+1. Add the ability to change the time-frame.
 1. ...
 1. Profit.

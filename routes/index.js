@@ -12,9 +12,11 @@ module.exports.data = function (req, res, next) {
       y: x.Average
     }});
 
-    res.json([{
-      name: "Response Time",
-      data: _.sortBy(transformedData, 'x')
-    }]);
+    res.json([
+      {
+        name: "Response Time",
+        data: _.sortBy(transformedData, 'x')
+      }
+    ]);
   });
 }
