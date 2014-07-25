@@ -2,7 +2,7 @@ $(document).ready(function() {
   var formatDate = d3.time.format.iso;
 
   var graph = new Rickshaw.Graph.Ajax( {
-      element: document.getElementById("chart"),
+      element: document.getElementById("graph"),
       height: 100,
       min: 'auto',
       renderer: 'line',

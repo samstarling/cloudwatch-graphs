@@ -1,8 +1,36 @@
 body {
-  font-family: 'HelveticaNeue-CondensedBold';
+  font-family: 'Helvetica Neue';
 }
 
 .container {
   width: 700px;
   margin: 20px auto;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.row {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.row .title {
+  font-size: 20px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.row .latest-value {
+  float: left;
+  width: 180px;
+  margin-right: 20px;
+  font-size: 40px;
+}
+
+.row .graph {
+  float: left;
+  width: 500px;
 }
