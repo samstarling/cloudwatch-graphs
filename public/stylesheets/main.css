@@ -24,8 +24,8 @@ h1, h2, h3, h4 {
 
 .row .title {
   font-size: 20px;
-  color: #666;
-  margin-bottom: 10px;
+  color: #777;
+  margin-bottom: 5px;
 }
 
 .row .stats {
@@ -36,9 +36,10 @@ h1, h2, h3, h4 {
 }
 
 .row .stats .units {
-  font-size: 20px;
-  margin-left: -8px;
+  font-size: 30px;
+  margin-left: -10px;
   margin-top: 4px;
+  opacity: 0.5;
 }
 
 .row .stats .latest {
@@ -55,11 +56,23 @@ h1, h2, h3, h4 {
 .row .graph {
   float: left;
   width: 700px;
+  height: 140px;
 }
+
+/* TODO Hacky CSS - can this be done with Rickshaw options? */
 
 .graph svg {
   position: relative;
   z-index: 10000;
+}
+
+.graph .detail .x_label {
+  display: none;
+}
+
+.rickshaw_graph .detail {
+  position: relative;
+  z-index: 20000 !important;
 }
 
 .graph .x_tick {
@@ -70,9 +83,8 @@ h1, h2, h3, h4 {
 
 .graph .x_tick .title {
   position: relative;
-  bottom: -13px !important;
-  left: -2px;
-  width: 20px;
-  text-align: center;
+  bottom: -8px !important;
   color: #999;
 }
+
+

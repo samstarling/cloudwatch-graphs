@@ -19,6 +19,9 @@ function initializeGraph(id, dataURL) {
             graph: graph,
             fixedTimeUnit: 1
           });
+          var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+              graph: graph
+          } );
           axes.render();
         }
         var data = graph.series[0].data;
