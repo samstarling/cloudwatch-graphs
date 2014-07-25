@@ -6,8 +6,7 @@ module.exports.index = function (req, res, next) {
 }
 
 module.exports.data = function (req, res, next) {
-  awsClient.metric('ldp-core-response-time', function(err, data) {
-
+  awsClient.metric(req.query.id, function(err, data) {
     var transformedData = data.map(function(x) { return {
       x: x.Timestamp.getTime() / 1000,
       y: x.Average

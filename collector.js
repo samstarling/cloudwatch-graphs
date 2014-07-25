@@ -8,23 +8,30 @@ AWS.config.update({
 var cloudwatch = new AWS.CloudWatch();
 
 var apigeeKey = process.env.APIGEE_KEY;
-var start = Date.now();
 
-http.get('http://data.bbc.co.uk/ldp/creative-works?api_key=' + apigeeKey, {}, function(err, res, body) {
-  var time = Date.now() - start;
+function report(url, metricName) {
+  var start = Date.now();
 
-  var params = {
-    MetricData: [ {
-      MetricName: 'ldp-core-response-time',
-      Timestamp: new Date,
-      Value: time,
-      Unit: 'Milliseconds'
-    } ],
-    Namespace: 'response-monitoring'
-  }
+  http.get(url + '?api_key=' + apigeeKey, {}, function(err, res, body) {
+    var time = Date.now() - start;
 
-  cloudwatch.putMetricData(params, function(err, data) {
-    if (err) console.log(err, err.stack);
-    else console.log('Success: Time of ' + time);
-  });
-})
+    var params = {
+      MetricData: [ {
+        MetricName: metricName,
+        Timestamp: new Date,
+        Value: time,
+        Unit: 'Milliseconds'
+      } ],
+      Namespace: 'response-monitoring'
+    }
+
+    cloudwatch.putMetricData(params, function(err, data) {
+      if (err) console.log(err, err.stack);
+      else console.log(metricName + ': Time of ' + time);
+    });
+  })
+}
+
+report('http://data.bbc.co.uk/ldp/creative-works', 'ldp-core-response-time');
+report('http://data.bbc.co.uk/ldp/creative-works-v2', 'ldp-core-cw-v2-response-time');
+report('http://data.bbc.co.uk/ldp/tag-concepts', 'ldp-core-tag-concepts-response-time');

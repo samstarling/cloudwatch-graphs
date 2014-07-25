@@ -1,13 +1,41 @@
-<h1>Response Monitoring</h1>
-<ul>
-  {{#data}}
-  <li>{{Timestamp}} - {{Average}}</li>
-  {{/data}}
-</ul>
+<h1>Response Time Graphs</h1>
 
-<div class="row">
-  <div class="title">LDP Core Response Time</div>
-  <div class="latest-value">x</div>
-  <div class="graph" id="graph"></div>
-  <div class="clearfix"/>
+<div id="cw" class="row">
+
+  <div class="stats">
+    <div class="title">Creative Works</div>
+    <div class="latest">
+      <span class="number">0</span>
+      <span class="units">ms</span>
+    </div>
+    <div class="average"></div>
+  </div>
+  <div class="graph"></div>
+  <div class="clearfix"></div>
+</div>
+
+<div id="cw-v2" class="row">
+  <div class="stats">
+    <div class="title">Creative Works V2</div>
+    <div class="latest">
+      <span class="number">0</span>
+      <span class="units">ms</span>
+    </div>
+    <div class="average"></div>
+  </div>
+  <div class="graph"></div>
+  <div class="clearfix"></div>
+</div>
+
+<div id="tc" class="row">
+  <div class="stats">
+    <div class="title">Tag Concepts</div>
+    <div class="latest">
+      <span class="number">0</span>
+      <span class="units">ms</span>
+    </div>
+    <div class="average"></div>
+  </div>
+  <div class="graph"></div>
+  <div class="clearfix"></div>
 </div>

@@ -1,10 +1,15 @@
 body {
-  font-family: 'Helvetica Neue';
+  font-family: 'ChaletBook';
+}
+
+h1, h2, h3, h4 {
+  letter-spacing: -1;
+  color: #334D5C;
 }
 
 .container {
-  width: 700px;
-  margin: 20px auto;
+  width: 900px;
+  margin: 40px auto;
 }
 
 .clearfix {
@@ -23,14 +28,51 @@ body {
   margin-bottom: 10px;
 }
 
-.row .latest-value {
+.row .stats {
   float: left;
   width: 180px;
   margin-right: 20px;
+  color: #416275;
+}
+
+.row .stats .units {
+  font-size: 20px;
+  margin-left: -8px;
+  margin-top: 4px;
+}
+
+.row .stats .latest {
+  color: #DF4949;
   font-size: 40px;
+  padding-bottom: 5px;
+}
+
+.row .stats .average {
+  font-size: 25px;
+  color: #666;
 }
 
 .row .graph {
   float: left;
-  width: 500px;
+  width: 700px;
+}
+
+.graph svg {
+  position: relative;
+  z-index: 10000;
+}
+
+.graph .x_tick {
+  border-left: 1px solid #eee !important;
+  position: relative;
+  z-index: 1;
+}
+
+.graph .x_tick .title {
+  position: relative;
+  bottom: -13px !important;
+  left: -2px;
+  width: 20px;
+  text-align: center;
+  color: #999;
 }
