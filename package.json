@@ -1,0 +1,15 @@
+{
+  "name": "response-graphs",
+  "version": "0.0.1",
+  "description": "Displays graphs of response times",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.6.1",
+    "aws-sdk": "^2.0.9"
+  }
+}
