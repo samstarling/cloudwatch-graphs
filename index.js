@@ -20,5 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routing
 app.get('/', index.index);
+app.get('/data', index.data);
 
 module.exports = app;

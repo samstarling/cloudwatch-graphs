@@ -1,0 +1,8 @@
+body {
+  font-family: 'HelveticaNeue-CondensedBold';
+}
+
+.container {
+  width: 700px;
+  margin: 20px auto;
+}
