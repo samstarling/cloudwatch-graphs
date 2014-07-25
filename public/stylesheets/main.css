@@ -61,12 +61,12 @@ h1, h2, h3, h4 {
 
 /* TODO Hacky CSS - can this be done with Rickshaw options? */
 
-.graph svg {
+.rickshaw_graph svg {
   position: relative;
   z-index: 10000;
 }
 
-.graph .detail .x_label {
+.rickshaw_graph .detail .x_label {
   display: none;
 }
 
@@ -75,13 +75,13 @@ h1, h2, h3, h4 {
   z-index: 20000 !important;
 }
 
-.graph .x_tick {
+.rickshaw_graph .x_tick {
   border-left: 1px solid #eee !important;
   position: relative;
   z-index: 1;
 }
 
-.graph .x_tick .title {
+.rickshaw_graph .x_tick .title {
   position: relative;
   bottom: -8px !important;
   color: #999;
