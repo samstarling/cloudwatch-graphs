@@ -13,51 +13,50 @@
 
 $(document).ready(function() {
 
-  function initializeGraph($metrics, namespace, metric) {
-    var axes;
-    var $metric = $($metrics[0]);
-    var graph = new Rickshaw.Graph.Ajax( {
-        element: $metric.find(".metric--graph")[0],
-        height: 140,
-        min: 'auto',
-        renderer: 'line',
-        interpolation: 'line',
-        dataURL: 'data?namespace=' + namespace + '&metric=' + metric,
-        onComplete: function(transport) {
-          var graph = transport.graph;
-          if(!axes) {
-            axes = new Rickshaw.Graph.Axis.Time({
-              graph: graph,
-              fixedTimeUnit: 1
-            });
-            var hoverDetail = new Rickshaw.Graph.HoverDetail( {
-                graph: graph,
-                formatter: function(series, x, y) {
-                    return y;
+    function initializeGraph($metrics) {
+        var axes;
+        var $metric = $($metrics[0]);
+        var namespace = $metric.attr('data-namespace');
+        var metric = $metric.attr('data-metric-name');
+        var graph = new Rickshaw.Graph.Ajax({
+            element: $metric.find(".metric--graph")[0],
+            height: 140,
+            min: 'auto',
+            renderer: 'line',
+            interpolation: 'line',
+            dataURL: 'data?namespace=' + namespace + '&metric=' + metric,
+            onComplete: function(transport) {
+                var graph = transport.graph;
+                if (!axes) {
+                    axes = new Rickshaw.Graph.Axis.Time({
+                        graph: graph,
+                        fixedTimeUnit: 1
+                    });
+                    var hoverDetail = new Rickshaw.Graph.HoverDetail({
+                        graph: graph,
+                        formatter: function(series, x, y) {
+                            return y;
+                        }
+                    });
                 }
-            });
-          }
-          var data = graph.series[0].data;
-          var last = Math.floor(data[data.length - 1].y);
-          $metric.find('.metric--value').text(last);
-          graph.update();
-        },
-        series: [
-          { name: 'data', color: '#45B29D' }
-        ]
+                var data = graph.series[0].data;
+                var last = Math.floor(data[data.length - 1].y);
+                $metric.find('.metric--value').text(last);
+                graph.update();
+            },
+            series: [{
+                name: 'data',
+                color: '#45B29D'
+            }]
+        });
+
+        setInterval(function() { graph.request(); }, 1000);
+    }
+
+
+    var formatDate = d3.time.format.iso;
+    $(".metric").each(function(index) {
+        $metric = $(this);
+        initializeGraph($metric);
     });
-
-    setInterval(function() {
-      graph.request();
-    }, 1000);
-  }
-
-
-  var formatDate = d3.time.format.iso;
-  $(".metric").each(function( index ) {
-    $metric = $(this);
-    var namespace = $metric.attr('data-namespace');
-    var metricName = $metric.attr('data-metric-name');
-    initializeGraph($metric, namespace, metricName);
-  });
 });
