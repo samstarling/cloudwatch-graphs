@@ -1,5 +1,6 @@
 {
   "title": "Graphs",
+  "awsRegion": "eu-west-1",
   "hoursToShow": 2,
   "period": 60,
   "metrics": [
