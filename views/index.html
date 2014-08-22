@@ -3,13 +3,15 @@
 </div>
 
 {{#metrics}}
-<div class="container">
-    <div class="metric" data-namespace="{{namespace}}" data-metric-name="{{metric}}">
-        <div class="metric--title">
-            <abbr title="{{namespace}} - {{metric}}">{{title}}</abbr>
+<div class="row">
+    <div class="container">
+        <div class="metric" data-namespace="{{namespace}}" data-metric-name="{{metric}}">
+            <div class="metric--title">
+                <abbr title="{{namespace}} - {{metric}}">{{title}}</abbr>
+            </div>
+            <div class="metric--value"></div>
+            <div class="metric--graph"></div>
         </div>
-        <div class="metric--value"></div>
-        <div class="metric--graph"></div>
     </div>
 </div>
 {{/metrics}}
