@@ -12,7 +12,6 @@
 
 
 $(document).ready(function() {
-
     function initializeGraph($metrics) {
         var axes;
         var $metric = $($metrics[0]);
@@ -53,10 +52,7 @@ $(document).ready(function() {
         setInterval(function() { graph.request(); }, 1000);
     }
 
-
-    var formatDate = d3.time.format.iso;
     $(".metric").each(function(index) {
-        $metric = $(this);
-        initializeGraph($metric);
+        initializeGraph($(this));
     });
 });
