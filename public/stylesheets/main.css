@@ -49,6 +49,11 @@ h1 {
   font-size: 20px;
 }
 
+.metric--value {
+  font-size: 30px;
+  color: #666;
+}
+
 .metric--graph {
   width: 650px;
   float: right;

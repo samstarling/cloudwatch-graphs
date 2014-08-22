@@ -1,15 +1,14 @@
-// function addCommas(nStr) {
-//   nStr += '';
-//   x = nStr.split('.');
-//   x1 = x[0];
-//   x2 = x.length > 1 ? '.' + x[1] : '';
-//   var rgx = /(\d+)(\d{3})/;
-//   while (rgx.test(x1)) {
-//     x1 = x1.replace(rgx, '$1' + ',' + '$2');
-//   }
-//   return x1 + x2;
-// }
-
+function addCommas(nStr) {
+    nStr += '';
+    x = nStr.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
+}
 
 $(document).ready(function() {
     function initializeGraph($metrics) {
@@ -37,13 +36,13 @@ $(document).ready(function() {
                     var hoverDetail = new Rickshaw.Graph.HoverDetail({
                         graph: graph,
                         formatter: function(series, x, y) {
-                            return y;
+                            return addCommas(y);
                         }
                     });
                 }
                 var data = graph.series[0].data;
                 var last = Math.floor(data[data.length - 1].y);
-                $metric.find('.metric--value').text(last);
+                $metric.find('.metric--value').text(addCommas(last));
                 graph.update();
             },
             series: [{
@@ -52,7 +51,9 @@ $(document).ready(function() {
             }]
         });
 
-        setInterval(function() { graph.request(); }, 1000);
+        setInterval(function() {
+            graph.request();
+        }, 1000);
     }
 
     $(".metric").each(function(index) {
