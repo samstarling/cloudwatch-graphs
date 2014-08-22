@@ -1,0 +1,10 @@
+{
+  "title": "Graphs",
+  "metrics": [
+    {
+      "title": "Node 1 Max Memory",
+      "namespace": "owlim/triple-store-int",
+      "metric": "owlim-node1_max_mem_usage"
+    }
+  ]
+}
