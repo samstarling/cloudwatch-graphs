@@ -22,6 +22,9 @@ $(document).ready(function() {
             height: 140,
             min: 'auto',
             renderer: 'line',
+            padding: {
+                bottom: 0.15
+            },
             interpolation: 'line',
             dataURL: 'data?namespace=' + namespace + '&metric=' + metric,
             onComplete: function(transport) {
