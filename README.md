@@ -10,7 +10,7 @@ You'll need to set your `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environm
 
     $ node server.js
 
-And the site will appear on port `7080`.
+The application will then appear on port `7080`.
 
 ### Configuration
 
