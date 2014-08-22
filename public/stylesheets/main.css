@@ -40,42 +40,18 @@ h1 {
   background: #fafafa;
 }
 
-.row .title {
+.metric--meta {
+  float: left;
+  width: 240px;
+}
+
+.metric--title {
   font-size: 20px;
-  color: #777;
-  margin-bottom: 5px;
 }
 
-.row .stats {
-  float: left;
-  width: 180px;
-  margin-right: 20px;
-  color: #416275;
-  bottom: 0;
-}
-
-.row .stats .units {
-  font-size: 30px;
-  margin-left: -10px;
-  margin-top: 4px;
-  opacity: 0.5;
-}
-
-.row .stats .latest {
-  color: #666;
-  font-size: 40px;
-  padding-bottom: 5px;
-}
-
-.row .stats .average {
-  font-size: 25px;
-  color: #666;
-}
-
-.row .graph {
-  float: left;
-  width: 700px;
-  height: 140px;
+.metric--graph {
+  width: 650px;
+  float: right;
 }
 
 /* TODO Hacky CSS - can this be done with Rickshaw options? */
