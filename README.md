@@ -24,3 +24,8 @@ All the configuration happens in `config.json`. The available parameters are:
   * `title`: The name of the metric.
   * `namespace`: The namespace of the metric.
   * `metric`: The name of the metric.
+
+### Still To-Do
+
+* Work out how to make more meaningful graphs from monotonically-increasing numbers, by turning them into a graph of the rate of change, rather than the raw number.
+* Add support for retrieving more complex metrics, or displaying multiple metrics on the same graph.
