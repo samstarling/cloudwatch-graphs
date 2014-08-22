@@ -1,6 +1,7 @@
 {
   "title": "Graphs",
   "hoursToShow": 2,
+  "period": 60,
   "metrics": [
     {
       "title": "Average Read Time",
