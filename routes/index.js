@@ -19,7 +19,7 @@ module.exports.data = function (req, res, next) {
     });
 
     res.json([{
-      name: "data",
+      name: 'data',
       data: _.sortBy(transformedData, 'x')
     }]);
   });

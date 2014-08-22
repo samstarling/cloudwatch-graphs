@@ -19,7 +19,6 @@ $(document).ready(function() {
     var graph = new Rickshaw.Graph.Ajax( {
         element: $metric.find(".metric--graph")[0],
         height: 140,
-        width: 300,
         min: 'auto',
         renderer: 'line',
         interpolation: 'line',
@@ -32,7 +31,10 @@ $(document).ready(function() {
               fixedTimeUnit: 1
             });
             var hoverDetail = new Rickshaw.Graph.HoverDetail( {
-                graph: graph
+                graph: graph,
+                formatter: function(series, x, y) {
+                    return y;
+                }
             });
           }
           var data = graph.series[0].data;
@@ -44,7 +46,6 @@ $(document).ready(function() {
           { name: 'data', color: '#45B29D' }
         ]
     });
-
 
     setInterval(function() {
       graph.request();

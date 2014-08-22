@@ -1,10 +1,21 @@
 {
   "title": "Graphs",
+  "hoursToShow": 2,
   "metrics": [
     {
-      "title": "Node 1 Max Memory",
-      "namespace": "owlim/triple-store-int",
-      "metric": "owlim-node1_max_mem_usage"
+      "title": "Average Read Time",
+      "namespace": "owlim/triple-store-live",
+      "metric": "average_read_time"
+    },
+    {
+      "title": "Completed Writes",
+      "namespace": "owlim/triple-store-live",
+      "metric": "completed_writes"
+    },
+    {
+      "title": "Completed Reads",
+      "namespace": "owlim/triple-store-live",
+      "metric": "completed_reads"
     }
   ]
 }
