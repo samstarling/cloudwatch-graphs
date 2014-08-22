@@ -5,14 +5,9 @@
   "period": 60,
   "metrics": [
     {
-      "title": "Average Read Time",
+      "title": "Running Reads",
       "namespace": "owlim/triple-store-live",
-      "metric": "average_read_time"
-    },
-    {
-      "title": "Completed Writes",
-      "namespace": "owlim/triple-store-live",
-      "metric": "completed_writes"
+      "metric": "running_reads"
     },
     {
       "title": "Completed Reads",
