@@ -1,5 +1,7 @@
 # cloudwatch-graphs
 
+![](https://www.versioneye.com/user/projects/53f8cb84e09da3f21f000377/badge.svg?style=flat)
+
 `cloudwatch-graphs` is a Node.js app that displays Cloudwatch metrics on a clean and simple front end. At the moment, it only supports the retrieval of metrics using the namespace and the metric name.
 
 ![](https://raw.githubusercontent.com/samstarling/cloudwatch-graphs/master/docs/screenshot.png)
