@@ -5,7 +5,10 @@
 {{#metrics}}
 <div class="row">
     <div class="container">
-        <div class="metric" data-namespace="{{namespace}}" data-metric-name="{{metric}}">
+        <div class="metric"
+            data-namespace="{{namespace}}"
+            data-metric-name="{{metric}}"
+            data-metric-type="{{type}}">
             <div class="metric--meta">
                 <div class="metric--title">
                     <abbr title="{{namespace}} - {{metric}}">{{title}}</abbr>

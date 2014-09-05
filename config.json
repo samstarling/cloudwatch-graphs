@@ -1,18 +1,26 @@
 {
   "title": "Graphs",
   "awsRegion": "eu-west-1",
-  "hoursToShow": 2,
-  "period": 60,
+  "hoursToShow": 2400,
+  "period": 7200,
   "metrics": [
     {
       "title": "Running Reads",
       "namespace": "owlim/triple-store-live",
-      "metric": "running_reads"
+      "metric": "running_reads",
+      "type": "gauge"
     },
     {
       "title": "Completed Reads",
       "namespace": "owlim/triple-store-live",
-      "metric": "completed_reads"
+      "metric": "completed_reads",
+      "type": "counter"
+    },
+    {
+      "title": "Running Writes",
+      "namespace": "owlim/triple-store-live",
+      "metric": "running_writes",
+      "type": "gauge"
     }
   ]
 }

@@ -16,6 +16,7 @@ $(document).ready(function() {
         var $metric = $($metrics[0]);
         var namespace = $metric.attr('data-namespace');
         var metric = $metric.attr('data-metric-name');
+        var type = $metric.attr('data-metric-type');
         var graph = new Rickshaw.Graph.Ajax({
             element: $metric.find(".metric--graph")[0],
             height: 140,
@@ -25,7 +26,7 @@ $(document).ready(function() {
                 bottom: 0.15
             },
             interpolation: 'line',
-            dataURL: 'data?namespace=' + namespace + '&metric=' + metric,
+            dataURL: 'data?namespace=' + namespace + '&metric=' + metric + '&type=' + type,
             onComplete: function(transport) {
                 var graph = transport.graph;
                 if (!axes) {
