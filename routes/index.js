@@ -18,7 +18,9 @@ function transformFor(metricType) {
 module.exports.index = function (req, res, next) {
   res.render('index', {
     title: config.title,
-    metrics: config.metrics
+    metrics: config.metrics,
+    period: config.period,
+    hours: config.hoursToShow
   });
 }
 
@@ -26,6 +28,8 @@ module.exports.data = function (req, res, next) {
   var options = {
     namespace: req.query.namespace,
     metric: req.query.metric,
+    from: new Date(new Date().getTime() - (config.hoursToShow * 60 * 60 * 1000)),
+    to: new Date()
   }
 
   awsClient.metric(options, function(err, data) {

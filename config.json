@@ -1,26 +1,46 @@
 {
-  "title": "Graphs",
-  "awsRegion": "eu-west-1",
-  "hoursToShow": 2400,
-  "period": 7200,
-  "metrics": [
-    {
-      "title": "Running Reads",
-      "namespace": "owlim/triple-store-live",
-      "metric": "running_reads",
-      "type": "gauge"
-    },
-    {
-      "title": "Completed Reads",
-      "namespace": "owlim/triple-store-live",
-      "metric": "completed_reads",
-      "type": "counter"
-    },
-    {
-      "title": "Running Writes",
-      "namespace": "owlim/triple-store-live",
-      "metric": "running_writes",
-      "type": "gauge"
-    }
-  ]
+    "awsRegion": "eu-west-1",
+    "hoursToShow": 168,
+    "metrics": [
+        {
+            "metric": "running_reads",
+            "namespace": "owlim/triple-store-live",
+            "title": "Running Reads",
+            "type": "gauge"
+        },
+        {
+            "metric": "completed_reads",
+            "namespace": "owlim/triple-store-live",
+            "title": "Completed Reads",
+            "type": "counter"
+        },
+        {
+            "metric": "running_writes",
+            "namespace": "owlim/triple-store-live",
+            "title": "Running Writes",
+            "type": "gauge"
+        },
+        {
+            "dimensions": [
+                {
+                    "Name": "Environment",
+                    "Value": "int"
+                },
+                {
+                    "Name": "Zenoss",
+                    "Value": "BBCApp"
+                },
+                {
+                    "Name": "valueType",
+                    "Value": "GAUGE"
+                }
+            ],
+            "metric": "2xxStatuses",
+            "namespace": "BBCApp/LDM",
+            "title": "LDM 2xx",
+            "type": "gauge"
+        }
+    ],
+    "period": 7200,
+    "title": "Graphs"
 }

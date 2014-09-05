@@ -37,12 +37,12 @@ $(document).ready(function() {
                     var hoverDetail = new Rickshaw.Graph.HoverDetail({
                         graph: graph,
                         formatter: function(series, x, y) {
-                            return addCommas(y);
+                            return addCommas(Math.round(y * 100) / 100);
                         }
                     });
                 }
                 var data = graph.series[0].data;
-                var last = Math.floor(data[data.length - 1].y);
+                var last = Math.round(data[data.length - 1].y * 100) / 100;
                 $metric.find('.metric--value').text(addCommas(last));
                 graph.update();
             },
