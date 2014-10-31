@@ -14,9 +14,7 @@ $(document).ready(function() {
     function initializeGraph($metrics) {
         var axes;
         var $metric = $($metrics[0]);
-        var namespace = $metric.attr('data-namespace');
-        var metric = $metric.attr('data-metric-name');
-        var type = $metric.attr('data-metric-type');
+        var metric = $metric.attr('data-metric');
         var graph = new Rickshaw.Graph.Ajax({
             element: $metric.find(".metric--graph")[0],
             height: 140,
@@ -26,7 +24,7 @@ $(document).ready(function() {
                 bottom: 0.15
             },
             interpolation: 'line',
-            dataURL: 'data?namespace=' + namespace + '&metric=' + metric + '&type=' + type,
+            dataURL: 'data?metric=' + metric,
             onComplete: function(transport) {
                 var graph = transport.graph;
                 if (!axes) {
@@ -37,12 +35,12 @@ $(document).ready(function() {
                     var hoverDetail = new Rickshaw.Graph.HoverDetail({
                         graph: graph,
                         formatter: function(series, x, y) {
-                            return addCommas(y);
+                            return addCommas(Math.round(y * 100) / 100);
                         }
                     });
                 }
                 var data = graph.series[0].data;
-                var last = Math.floor(data[data.length - 1].y);
+                var last = Math.round(data[data.length - 1].y * 100) / 100;
                 $metric.find('.metric--value').text(addCommas(last));
                 graph.update();
             },

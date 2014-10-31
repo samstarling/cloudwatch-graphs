@@ -16,19 +16,24 @@ function transformFor(metricType) {
 }
 
 module.exports.index = function (req, res, next) {
+  var metrics = [];
+  _.each(_.keys(config.metrics), function (k) {
+    metrics.push({ key: k, value: config.metrics[k] });
+  });
+
   res.render('index', {
     title: config.title,
-    metrics: config.metrics
+    metrics: metrics,
+    period: config.period,
+    hours: config.hoursToShow
   });
 }
 
 module.exports.data = function (req, res, next) {
-  var options = {
-    namespace: req.query.namespace,
-    metric: req.query.metric,
-  }
+  var metric = req.query.metric;
+  var params = config.metrics[metric]['cloudwatch_params'];
 
-  awsClient.metric(options, function(err, data) {
+  awsClient.metric(params, function(err, data) {
     var transformedData = data.map(function(cur, idx) {
       return {
         x: cur.Timestamp.getTime() / 1000,

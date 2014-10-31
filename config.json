@@ -1,26 +1,50 @@
 {
-  "title": "Graphs",
-  "awsRegion": "eu-west-1",
-  "hoursToShow": 2400,
-  "period": 7200,
-  "metrics": [
-    {
-      "title": "Running Reads",
-      "namespace": "owlim/triple-store-live",
-      "metric": "running_reads",
-      "type": "gauge"
+    "awsRegion": "eu-west-1",
+    "hoursToShow": 1,
+    "metrics": {
+        "2xx": {
+            "title": "LDM 2xx Responses",
+            "cloudwatch_params": {
+                "Dimensions": [
+                    {
+                        "Name": "Environment",
+                        "Value": "int"
+                    },
+                    {
+                        "Name": "Zenoss",
+                        "Value": "BBCApp"
+                    },
+                    {
+                        "Name": "valueType",
+                        "Value": "GAUGE"
+                    }
+                ],
+                "MetricName": "2xxStatuses",
+                "Namespace": "BBCApp/LDM"
+            }
+        },
+        "4xx": {
+            "title": "LDM 4xx Responses",
+            "cloudwatch_params": {
+                "Dimensions": [
+                    {
+                        "Name": "Environment",
+                        "Value": "int"
+                    },
+                    {
+                        "Name": "Zenoss",
+                        "Value": "BBCApp"
+                    },
+                    {
+                        "Name": "valueType",
+                        "Value": "GAUGE"
+                    }
+                ],
+                "MetricName": "4xxStatuses",
+                "Namespace": "BBCApp/LDM"
+            }
+        }
     },
-    {
-      "title": "Completed Reads",
-      "namespace": "owlim/triple-store-live",
-      "metric": "completed_reads",
-      "type": "counter"
-    },
-    {
-      "title": "Running Writes",
-      "namespace": "owlim/triple-store-live",
-      "metric": "running_writes",
-      "type": "gauge"
-    }
-  ]
+    "period": 3000,
+    "title": "Graphs"
 }

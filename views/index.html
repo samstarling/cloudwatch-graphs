@@ -1,19 +1,16 @@
 <div class="container">
   <h1>{{ title }}</h1>
+  <p>Showing the past {{ hours }} hours</p>
+  <p>Plotting a point every {{ period }} seconds</p>
 </div>
 
 {{#metrics}}
 <div class="row">
     <div class="container">
-        <div class="metric"
-            data-namespace="{{namespace}}"
-            data-metric-name="{{metric}}"
-            data-metric-type="{{type}}">
+        <div class="metric" data-metric="{{key}}">
             <div class="metric--meta">
-                <div class="metric--title">
-                    <abbr title="{{namespace}} - {{metric}}">{{title}}</abbr>
-                </div>
-                <div class="metric--value"></div>
+                <div class="metric--title">{{value.title}}</div>
+                <div><span class="metric--value"></span></div>
             </div>
             <div class="metric--graph"></div>
             <div class="clearfix"></div>
