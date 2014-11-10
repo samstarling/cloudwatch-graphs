@@ -16,16 +16,7 @@ The application will then appear on port `7080`.
 
 ### Configuration
 
-All the configuration happens in `config.json`. The available parameters are:
-
-* `title`: Displayed as the title at the top of the page.
-* `awsRegion`: The AWS region to connect to.
-* `hoursToShow`: The number of hours of data to show.
-* `period`: The number of seconds between sample points. For example, 60 means that a point will be plotted for every minute.
-* `metrics`: An array of objects that describe the metrics to plot. Each object should include:
-  * `title`: The name of the metric.
-  * `namespace`: The namespace of the metric.
-  * `metric`: The name of the metric.
+All the configuration happens in `config.json`. A fairly self-explanatory example has been included in this repository.
 
 ### Still To-Do
 
